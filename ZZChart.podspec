@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "ZZChart"
   s.version      = "1.0.0"
-  s.summary      = "ZZChart for iOS"
+  s.summary      = "A short description of ZZChart."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT"
+  s.license      = "MIT (example)"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/zhouyouong/ZZChart.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/zhouyouong/ZZChart.git", :tag => “1.0.0” }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,8 +90,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'ZZChart/*'
-  #  s.exclude_files = "Classes/Exclude"
+  s.source_files  = “ZZChart”, "ZZChart/**/*.{h,m}"
+  s.exclude_files = "ZZChart/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -117,7 +117,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "Foundation", "UIKit"
+  # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
