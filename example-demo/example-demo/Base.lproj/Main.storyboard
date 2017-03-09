@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d3n-yB-NRb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="vhf-EU-Ucv">
+            <objects>
+                <viewController id="d3n-yB-NRb" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3pI-0v-1iR"/>
+                        <viewControllerLayoutGuide type="bottom" id="T4H-ga-U1B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fON-3J-GKV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1NB-f0-epS">
+                                <rect key="frame" x="38" y="30" width="300" height="300"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="23M-rd-qfB"/>
+                                    <constraint firstAttribute="height" constant="300" id="kaG-J3-uZa"/>
+                                </constraints>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eLv-Ay-QIA">
+                                <rect key="frame" x="37" y="350" width="301" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="0Mg-hh-p2m"/>
+                                    <constraint firstAttribute="width" constant="301" id="Gh2-aB-H4W"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="0"/>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                    <segment title="5"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didSegmentSeleted:" destination="d3n-yB-NRb" eventType="valueChanged" id="OFb-9T-7AU"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1NB-f0-epS" firstAttribute="top" secondItem="3pI-0v-1iR" secondAttribute="bottom" constant="10" id="BJv-cr-aeg"/>
+                            <constraint firstItem="1NB-f0-epS" firstAttribute="centerX" secondItem="fON-3J-GKV" secondAttribute="centerX" id="Nlb-3K-ynk"/>
+                            <constraint firstItem="eLv-Ay-QIA" firstAttribute="centerX" secondItem="fON-3J-GKV" secondAttribute="centerX" id="eT6-ca-1AG"/>
+                            <constraint firstItem="eLv-Ay-QIA" firstAttribute="top" secondItem="1NB-f0-epS" secondAttribute="bottom" constant="20" id="mLe-IY-M8b"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="conteinView" destination="1NB-f0-epS" id="SWJ-1E-net"/>
+                        <outlet property="segementCL" destination="eLv-Ay-QIA" id="0d8-lN-7jY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0uV-gG-RF5" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-199" y="36"/>
+        </scene>
+    </scenes>
+</document>
