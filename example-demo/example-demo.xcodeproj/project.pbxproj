@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250390CD1E756DA600179155 /* ZZBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 250390C51E756DA600179155 /* ZZBar.m */; };
+		250390CE1E756DA600179155 /* ZZBarchart.m in Sources */ = {isa = PBXBuildFile; fileRef = 250390C71E756DA600179155 /* ZZBarchart.m */; };
+		250390CF1E756DA600179155 /* ZZBaseChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 250390C91E756DA600179155 /* ZZBaseChart.m */; };
+		250390D01E756DA600179155 /* ZZLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 250390CC1E756DA600179155 /* ZZLabel.m */; };
 		7C6708BE1E70F8E4000B88EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6708BD1E70F8E4000B88EF /* main.m */; };
 		7C6708C11E70F8E4000B88EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6708C01E70F8E4000B88EF /* AppDelegate.m */; };
 		7C6708C41E70F8E4000B88EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6708C31E70F8E4000B88EF /* ViewController.m */; };
@@ -15,10 +19,6 @@
 		7C6708CC1E70F8E4000B88EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6708CA1E70F8E4000B88EF /* LaunchScreen.storyboard */; };
 		7C6708D71E70F8E4000B88EF /* example_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6708D61E70F8E4000B88EF /* example_demoTests.m */; };
 		7C6708E21E70F8E4000B88EF /* example_demoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6708E11E70F8E4000B88EF /* example_demoUITests.m */; };
-		7C6708F91E70F95F000B88EF /* ZZBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6708F11E70F95F000B88EF /* ZZBar.m */; };
-		7C6708FA1E70F95F000B88EF /* ZZBarchart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6708F31E70F95F000B88EF /* ZZBarchart.m */; };
-		7C6708FB1E70F95F000B88EF /* ZZBaseChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6708F51E70F95F000B88EF /* ZZBaseChart.m */; };
-		7C6708FC1E70F95F000B88EF /* ZZLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6708F81E70F95F000B88EF /* ZZLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250390C41E756DA600179155 /* ZZBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBar.h; sourceTree = "<group>"; };
+		250390C51E756DA600179155 /* ZZBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBar.m; sourceTree = "<group>"; };
+		250390C61E756DA600179155 /* ZZBarchart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBarchart.h; sourceTree = "<group>"; };
+		250390C71E756DA600179155 /* ZZBarchart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBarchart.m; sourceTree = "<group>"; };
+		250390C81E756DA600179155 /* ZZBaseChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBaseChart.h; sourceTree = "<group>"; };
+		250390C91E756DA600179155 /* ZZBaseChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBaseChart.m; sourceTree = "<group>"; };
+		250390CA1E756DA600179155 /* ZZChartDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZChartDelegate.h; sourceTree = "<group>"; };
+		250390CB1E756DA600179155 /* ZZLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZLabel.h; sourceTree = "<group>"; };
+		250390CC1E756DA600179155 /* ZZLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZLabel.m; sourceTree = "<group>"; };
 		7C6708B91E70F8E4000B88EF /* example-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "example-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6708BD1E70F8E4000B88EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7C6708BF1E70F8E4000B88EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,15 +64,6 @@
 		7C6708DD1E70F8E4000B88EF /* example-demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "example-demoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6708E11E70F8E4000B88EF /* example_demoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = example_demoUITests.m; sourceTree = "<group>"; };
 		7C6708E31E70F8E4000B88EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C6708F01E70F95F000B88EF /* ZZBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBar.h; sourceTree = "<group>"; };
-		7C6708F11E70F95F000B88EF /* ZZBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBar.m; sourceTree = "<group>"; };
-		7C6708F21E70F95F000B88EF /* ZZBarchart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBarchart.h; sourceTree = "<group>"; };
-		7C6708F31E70F95F000B88EF /* ZZBarchart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBarchart.m; sourceTree = "<group>"; };
-		7C6708F41E70F95F000B88EF /* ZZBaseChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBaseChart.h; sourceTree = "<group>"; };
-		7C6708F51E70F95F000B88EF /* ZZBaseChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBaseChart.m; sourceTree = "<group>"; };
-		7C6708F61E70F95F000B88EF /* ZZChartDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZChartDelegate.h; sourceTree = "<group>"; };
-		7C6708F71E70F95F000B88EF /* ZZLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZLabel.h; sourceTree = "<group>"; };
-		7C6708F81E70F95F000B88EF /* ZZLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +91,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250390C31E756DA600179155 /* ZZChart */ = {
+			isa = PBXGroup;
+			children = (
+				250390C41E756DA600179155 /* ZZBar.h */,
+				250390C51E756DA600179155 /* ZZBar.m */,
+				250390C61E756DA600179155 /* ZZBarchart.h */,
+				250390C71E756DA600179155 /* ZZBarchart.m */,
+				250390C81E756DA600179155 /* ZZBaseChart.h */,
+				250390C91E756DA600179155 /* ZZBaseChart.m */,
+				250390CA1E756DA600179155 /* ZZChartDelegate.h */,
+				250390CB1E756DA600179155 /* ZZLabel.h */,
+				250390CC1E756DA600179155 /* ZZLabel.m */,
+			);
+			path = ZZChart;
+			sourceTree = "<group>";
+		};
 		7C6708B01E70F8E4000B88EF = {
 			isa = PBXGroup;
 			children = (
-				7C6708EF1E70F95F000B88EF /* ZZChart */,
+				250390C31E756DA600179155 /* ZZChart */,
 				7C6708BB1E70F8E4000B88EF /* example-demo */,
 				7C6708D51E70F8E4000B88EF /* example-demoTests */,
 				7C6708E01E70F8E4000B88EF /* example-demoUITests */,
@@ -152,22 +168,6 @@
 				7C6708E31E70F8E4000B88EF /* Info.plist */,
 			);
 			path = "example-demoUITests";
-			sourceTree = "<group>";
-		};
-		7C6708EF1E70F95F000B88EF /* ZZChart */ = {
-			isa = PBXGroup;
-			children = (
-				7C6708F01E70F95F000B88EF /* ZZBar.h */,
-				7C6708F11E70F95F000B88EF /* ZZBar.m */,
-				7C6708F21E70F95F000B88EF /* ZZBarchart.h */,
-				7C6708F31E70F95F000B88EF /* ZZBarchart.m */,
-				7C6708F41E70F95F000B88EF /* ZZBaseChart.h */,
-				7C6708F51E70F95F000B88EF /* ZZBaseChart.m */,
-				7C6708F61E70F95F000B88EF /* ZZChartDelegate.h */,
-				7C6708F71E70F95F000B88EF /* ZZLabel.h */,
-				7C6708F81E70F95F000B88EF /* ZZLabel.m */,
-			);
-			path = ZZChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,12 +307,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6708C41E70F8E4000B88EF /* ViewController.m in Sources */,
-				7C6708FB1E70F95F000B88EF /* ZZBaseChart.m in Sources */,
+				250390CF1E756DA600179155 /* ZZBaseChart.m in Sources */,
 				7C6708C11E70F8E4000B88EF /* AppDelegate.m in Sources */,
-				7C6708FC1E70F95F000B88EF /* ZZLabel.m in Sources */,
+				250390D01E756DA600179155 /* ZZLabel.m in Sources */,
 				7C6708BE1E70F8E4000B88EF /* main.m in Sources */,
-				7C6708FA1E70F95F000B88EF /* ZZBarchart.m in Sources */,
-				7C6708F91E70F95F000B88EF /* ZZBar.m in Sources */,
+				250390CE1E756DA600179155 /* ZZBarchart.m in Sources */,
+				250390CD1E756DA600179155 /* ZZBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +552,7 @@
 				7C6708E81E70F8E4000B88EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C6708E91E70F8E4000B88EF /* Build configuration list for PBXNativeTarget "example-demoTests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +561,7 @@
 				7C6708EB1E70F8E4000B88EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C6708EC1E70F8E4000B88EF /* Build configuration list for PBXNativeTarget "example-demoUITests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +570,7 @@
 				7C6708EE1E70F8E4000B88EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
