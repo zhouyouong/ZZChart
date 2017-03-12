@@ -10,9 +10,10 @@ Pod::Spec.new do |s|
 
   s.name         = "ZZChart"
   s.version      = "1.0.0"
-  s.summary      = "A short description of ZZChart."
+  s.summary      = "ZZChart for ios"
 
   s.description  = <<-DESC
+                  ZZChart for ios，,now its a bar chart
                    DESC
 
   s.homepage     = "https://github.com/zhouyouong/ZZChart"

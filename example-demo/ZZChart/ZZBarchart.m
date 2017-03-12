@@ -308,7 +308,7 @@
         _barWidth = (_conteinerWidth-(_yValues.count-1)*_marginBar)/_yValues.count;
     }
     
-    CGFloat totalW;
+    CGFloat totalW = 0;
     CGFloat pertenage = 1;
     if (_barWidths) {
         for (id obj in _barWidths) {
