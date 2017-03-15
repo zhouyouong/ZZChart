@@ -206,8 +206,8 @@
         UIBezierPath * path = [UIBezierPath bezierPath];
         path.lineWidth = 1.0;
         path.lineCapStyle = kCGLineCapSquare;
-        [path moveToPoint:CGPointMake(_chartMargins.left+_yWidthLabel, _chartMargins.top)];
-        [path addLineToPoint:CGPointMake(_chartMargins.left+_yWidthLabel, self.frame.size.height - _xHeightLabel -_chartMargins.bottom)];
+        [path moveToPoint:CGPointMake(_chartMargins.left+_yWidthLabel, self.frame.size.height - _xHeightLabel -_chartMargins.bottom)];
+        [path addLineToPoint:CGPointMake(_chartMargins.left+_yWidthLabel, _chartMargins.top)];
         
         _leftLine.path = path.CGPath;
         
@@ -287,6 +287,7 @@
     }
 }
 
+
 -(void)drawBars{
     
     CGFloat totalH = self.frame.size.height;
@@ -356,11 +357,17 @@
                 barY -= barH;
                 
                 ZZBar * subbar = [[ZZBar alloc]initWithFrame:CGRectMake(barX, barY, barW, barH)];
-                
+            
                 if (_yStrokeColors[j]) {
-                    subbar.backgroundColor = _yStrokeColors[j];
+                    [UIView animateWithDuration:1.5 animations:^{
+                        subbar.backgroundColor = _yStrokeColors[j];
+                    }];
+                    
                 }else{
-                    subbar.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3*j];
+                    
+                    [UIView animateWithDuration:1.5 animations:^{
+                        subbar.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3*j];
+                    }];
                 }
                 subbar.tag = i;
                 subbar.displayAnimation = self.playAniamtion;
@@ -406,9 +413,13 @@
                 
                 [self creareXlabelsWith:CGRectMake(barX, barY, barW, _xHeightLabel) andIndex:i];
                 if (_yStrokeColor) {
-                    bar.backgroundColor = _yStrokeColor;
+                    [UIView animateWithDuration:1.5 animations:^{
+                       bar.backgroundColor = _yStrokeColor;
+                    }];
                 }else{
-                    bar.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+                    [UIView animateWithDuration:1.5 animations:^{
+                        bar.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+                    }];
                 }
                 bar.tag = i;
                 bar.displayAnimation = self.playAniamtion;
@@ -418,7 +429,26 @@
         }
     
     }
+    
+    [self addAnimationToBars];
+    
+}
 
+
+-(void)addAnimationToBars{
+    
+    for (ZZBar * bar in _barsConteiner) {
+        CGRect rect = bar.bounds;
+//        CGFloat rectX = rect.origin.x;
+//        CGFloat rectY = rect.origin.y;
+        CGFloat rectH = rect.size.height;
+        CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"bounds.size.height"];
+        animation.duration = 0.5;
+        animation.repeatCount =1;
+        animation.fromValue = @0;
+        animation.toValue = @(rectH);
+        [bar.layer addAnimation:animation forKey:nil];
+    }
 }
 
 -(void)creareXlabelsWith:(CGRect)rect andIndex:(NSInteger)index{    
