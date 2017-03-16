@@ -54,6 +54,8 @@
 @property (nonatomic, assign) BOOL showRightLine;
 @property (nonatomic, assign) BOOL showXlabels;
 @property (nonatomic, assign) BOOL showYlabels;
+@property (nonatomic, assign) BOOL showDetailLabelOnBartop;
+@property (nonatomic, assign) BOOL showDetailLabelOnBar;
 
 /**
  待拓展,显示网格

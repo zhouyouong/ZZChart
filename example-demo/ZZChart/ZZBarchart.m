@@ -30,6 +30,7 @@
     CGFloat _conteinerHeight;
     CGFloat _conteinerWidth;
     NSMutableArray * _barsConteiner;
+    NSMutableArray * _labelsConteiner;
     BOOL _didSetBarmagin;
 
 }
@@ -67,11 +68,14 @@
     _showYlabels = YES;
     _showXlabels = YES;
     _isMutiBar = NO;
+    _showDetailLabelOnBartop = YES;
+    _showDetailLabelOnBar = NO;
     _chartMargins = UIEdgeInsetsMake(25, 10, 20, 18);
     _xBarLabels = [NSMutableArray array];
     _yBarLabels = [NSMutableArray array];
     _temproryArr = [NSMutableArray array];
     _barsConteiner = [NSMutableArray array];
+    _labelsConteiner = [NSMutableArray array];
     _ySegmentCount = 1;
     _yLableNumber = 0;
     _yValueMin = 0;
@@ -369,7 +373,7 @@
                         subbar.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3*j];
                     }];
                 }
-                subbar.tag = i;
+                subbar.tag = i*_yValues.count*10000 +j;
                 subbar.displayAnimation = self.playAniamtion;
                 [self addSubview:subbar];
                 [_barsConteiner addObject:subbar];
@@ -435,18 +439,21 @@
 }
 
 
+
+
 -(void)addAnimationToBars{
     
     for (ZZBar * bar in _barsConteiner) {
-        CGRect rect = bar.bounds;
-//        CGFloat rectX = rect.origin.x;
-//        CGFloat rectY = rect.origin.y;
-        CGFloat rectH = rect.size.height;
-        CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"bounds.size.height"];
+        CGRect rect = bar.frame;
+        CGFloat rectX = rect.origin.x;
+        CGFloat rectY = rect.origin.y;
+        CGFloat rectW = rect.size.width;
+//        CGFloat rectH = rect.size.height;
+        CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"bounds"];
         animation.duration = 0.5;
         animation.repeatCount =1;
-        animation.fromValue = @0;
-        animation.toValue = @(rectH);
+        animation.fromValue = [NSValue valueWithCGRect:CGRectMake(rectX, rectY, rectW, 0)];
+        animation.toValue = [NSValue valueWithCGRect:rect];
         [bar.layer addAnimation:animation forKey:nil];
     }
 }
@@ -489,6 +496,11 @@
     [self touches:touches Envents:event];
 }
 
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesEnded:touches withEvent:event];
+    [self viewsRemoveForCollectionView:_labelsConteiner];
+}
+
 -(void)touches:(NSSet *)touches Envents:(UIEvent *)event{
     UITouch * touch = touches.anyObject;
     CGPoint point = [touch locationInView:self];
@@ -501,9 +513,37 @@
     
     if ([self.delegate respondsToSelector:@selector(userTouchIndex:)]&& [subView isKindOfClass:[ZZBar class]]) {
         [self.delegate userTouchIndex:subView.tag];
+        [self drawDetailLabelOnBar:(ZZBar*)subView];
     }
-
 }
+
+-(void)drawDetailLabelOnBar:(ZZBar*)bar{
+    [self viewsRemoveForCollectionView:_labelsConteiner];
+    CGRect rect = bar.frame;
+    CGFloat labelX = rect.origin.x;
+    CGFloat labelY = rect.origin.y+rect.size.height/2.0;
+    CGFloat labelW = 44;
+    CGFloat labelH = 22;
+    NSString * title;
+    if (_isMutiBar) {
+        NSArray * sub = _yValues[bar.tag/(_yValues.count*10000)];
+        title = [NSString stringWithFormat:@"%@",sub[bar.tag%(_yValues.count*10000)]];
+    }else{
+        title = [NSString stringWithFormat:@"%@",_yValues[bar.tag]];
+    }
+    if (_showDetailLabelOnBartop) {
+        UILabel * titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(labelX, labelY-rect.size.height/2.0-22, labelW, labelH)];
+        titleLabel.text = title;
+        [self addSubview:titleLabel];
+        [_labelsConteiner addObject:titleLabel];
+    }else if (_showDetailLabelOnBar){
+        UILabel * titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(labelX, labelY-11, labelW, labelH)];
+        titleLabel.text = title;
+        [self addSubview:titleLabel];
+        [_labelsConteiner addObject:titleLabel];
+    }
+}
+
 
 -(void)setBarMargin:(CGFloat)barMargin{
     _barMargin = barMargin;

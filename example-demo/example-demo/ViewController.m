@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segementCL;
 
+@property (weak, nonatomic) IBOutlet UISwitch *switchTop;
+@property (weak, nonatomic) IBOutlet UISwitch *switchMiddle;
 
 @end
 
@@ -32,10 +34,13 @@
 - (IBAction)didSegmentSeleted:(UISegmentedControl *)sender {
     NSInteger index = sender.selectedSegmentIndex;
     
+    
     switch (index) {
         case 0:{
             [_barChart removeFromSuperview];
             _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart.showDetailLabelOnBar = self.switchMiddle.on;
+            _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
             _barChart.yStrokeColors = @[[UIColor redColor],[UIColor greenColor],[UIColor blueColor]];
             _barChart.xLabels = @[@1,@2,@3,@4,@5];
@@ -48,6 +53,8 @@
         case 1:{
             [_barChart removeFromSuperview];
             _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart.showDetailLabelOnBar = self.switchMiddle.on;
+            _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
             _barChart.yStrokeColors = @[[UIColor redColor],[UIColor greenColor],[UIColor blueColor]];
             _barChart.xLabels = @[@1,@2,@3,@4,@5];
@@ -60,6 +67,8 @@
         case 2:{
             [_barChart removeFromSuperview];
             _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart.showDetailLabelOnBar = self.switchMiddle.on;
+            _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
             _barChart.yStrokeColors = @[[UIColor redColor],[UIColor greenColor],[UIColor blueColor]];
             _barChart.xLabels = @[@1,@2,@3,@4,@5];
@@ -73,6 +82,8 @@
             
             [_barChart removeFromSuperview];
             _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart.showDetailLabelOnBar = self.switchMiddle.on;
+            _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
             _barChart.yStrokeColors = @[[UIColor redColor],[UIColor greenColor],[UIColor blueColor]];
             _barChart.xLabels = @[@1,@2,@3,@4,@5];
@@ -86,6 +97,8 @@
         case 4:{
             [_barChart removeFromSuperview];
             _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart.showDetailLabelOnBar = self.switchMiddle.on;
+            _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
             _barChart.yStrokeColors = @[[UIColor redColor],[UIColor greenColor],[UIColor blueColor]];
             _barChart.xLabels = @[@1,@2,@3,@4,@5];
@@ -97,6 +110,8 @@
         case 5:{
             [_barChart removeFromSuperview];
             _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart.showDetailLabelOnBar = self.switchMiddle.on;
+            _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
             _barChart.yStrokeColors = @[[UIColor redColor],[UIColor greenColor],[UIColor blueColor]];
             _barChart.xLabels = @[@1,@2,@3,@4,@5];
@@ -111,6 +126,16 @@
             break;
     }
 }
+
+- (IBAction)detaileLabelDidSwitch:(UISwitch *)sender {
+    if (sender.tag == 0 && sender.on) {
+        self.switchMiddle.on = NO;
+    }else if (sender.tag == 1&& sender.on){
+        self.switchTop.on = NO;
+    }
+    [self didSegmentSeleted:self.segementCL];
+}
+
 
 
 -(void)userTouchIndex:(NSInteger)index{
