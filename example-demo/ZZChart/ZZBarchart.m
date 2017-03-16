@@ -32,7 +32,6 @@
     NSMutableArray * _barsConteiner;
     NSMutableArray * _labelsConteiner;
     BOOL _didSetBarmagin;
-
 }
 
 @end
@@ -522,7 +521,7 @@
     CGRect rect = bar.frame;
     CGFloat labelX = rect.origin.x;
     CGFloat labelY = rect.origin.y+rect.size.height/2.0;
-    CGFloat labelW = 44;
+    CGFloat labelW = 100;
     CGFloat labelH = 22;
     NSString * title;
     if (_isMutiBar) {
@@ -531,17 +530,23 @@
     }else{
         title = [NSString stringWithFormat:@"%@",_yValues[bar.tag]];
     }
+    
+    UILabel * titleLabel = [[UILabel alloc]init];
     if (_showDetailLabelOnBartop) {
-        UILabel * titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(labelX, labelY-rect.size.height/2.0-22, labelW, labelH)];
-        titleLabel.text = title;
-        [self addSubview:titleLabel];
-        [_labelsConteiner addObject:titleLabel];
+        titleLabel.frame =CGRectMake(labelX-50+rect.size.width/2.0, labelY-rect.size.height/2.0-22, labelW, labelH);
     }else if (_showDetailLabelOnBar){
-        UILabel * titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(labelX, labelY-11, labelW, labelH)];
-        titleLabel.text = title;
-        [self addSubview:titleLabel];
-        [_labelsConteiner addObject:titleLabel];
+        titleLabel.frame =CGRectMake(labelX-50+rect.size.width/2.0, labelY-11, labelW, labelH);
     }
+    titleLabel.text = title;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    if (self.detailLabelTextColor) {
+        titleLabel.textColor = self.detailLabelTextColor;
+    }
+    if (self.detailLabelBackgroundColor) {
+        titleLabel.backgroundColor = self.detailLabelBackgroundColor;
+    }
+    [self addSubview:titleLabel];
+    [_labelsConteiner addObject:titleLabel];
 }
 
 

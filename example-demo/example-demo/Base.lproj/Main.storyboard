@@ -48,44 +48,44 @@
                                 </connections>
                             </segmentedControl>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7EZ-eZ-8WC">
-                                <rect key="frame" x="37" y="403" width="51" height="31"/>
+                                <rect key="frame" x="37" y="402" width="51" height="31"/>
                                 <connections>
                                     <action selector="detaileLabelDidSwitch:" destination="d3n-yB-NRb" eventType="valueChanged" id="ABB-g5-Mg5"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在Bar顶部显示详情标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xic-eM-vtk">
-                                <rect key="frame" x="107" y="408" width="182" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="顶部标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xic-eM-vtk">
+                                <rect key="frame" x="94" y="408" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中间标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDc-Dc-OJK">
+                                <rect key="frame" x="246" y="408" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2or-BV-3TH">
-                                <rect key="frame" x="38" y="442" width="51" height="31"/>
+                                <rect key="frame" x="189" y="403" width="51" height="31"/>
                                 <connections>
                                     <action selector="detaileLabelDidSwitch:" destination="d3n-yB-NRb" eventType="valueChanged" id="mNN-eH-TDI"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在Bar中间显示详情标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDc-Dc-OJK">
-                                <rect key="frame" x="107" y="447" width="182" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="HDc-Dc-OJK" firstAttribute="leading" secondItem="Xic-eM-vtk" secondAttribute="leading" id="1j3-YX-Afn"/>
-                            <constraint firstItem="Xic-eM-vtk" firstAttribute="centerY" secondItem="7EZ-eZ-8WC" secondAttribute="centerY" id="38D-YM-igG"/>
+                            <constraint firstItem="2or-BV-3TH" firstAttribute="top" secondItem="eLv-Ay-QIA" secondAttribute="bottom" constant="25" id="8jj-aY-Cun"/>
                             <constraint firstItem="1NB-f0-epS" firstAttribute="top" secondItem="3pI-0v-1iR" secondAttribute="bottom" constant="10" id="BJv-cr-aeg"/>
-                            <constraint firstItem="7EZ-eZ-8WC" firstAttribute="leading" secondItem="eLv-Ay-QIA" secondAttribute="leading" id="BLV-vn-nvx"/>
-                            <constraint firstItem="HDc-Dc-OJK" firstAttribute="centerY" secondItem="2or-BV-3TH" secondAttribute="centerY" id="FbP-tw-frJ"/>
-                            <constraint firstItem="HDc-Dc-OJK" firstAttribute="leading" secondItem="2or-BV-3TH" secondAttribute="trailing" constant="20" id="GZL-eM-vMF"/>
+                            <constraint firstItem="Xic-eM-vtk" firstAttribute="baseline" secondItem="HDc-Dc-OJK" secondAttribute="baseline" id="EQu-ia-Gbp"/>
+                            <constraint firstItem="2or-BV-3TH" firstAttribute="leading" secondItem="Xic-eM-vtk" secondAttribute="trailing" constant="25" id="Ifc-yk-TME"/>
                             <constraint firstItem="1NB-f0-epS" firstAttribute="centerX" secondItem="fON-3J-GKV" secondAttribute="centerX" id="Nlb-3K-ynk"/>
-                            <constraint firstItem="2or-BV-3TH" firstAttribute="leading" secondItem="1NB-f0-epS" secondAttribute="leading" id="QA0-ho-T8a"/>
-                            <constraint firstItem="2or-BV-3TH" firstAttribute="top" secondItem="7EZ-eZ-8WC" secondAttribute="bottom" constant="8" symbolic="YES" id="UdA-vn-0T0"/>
+                            <constraint firstItem="7EZ-eZ-8WC" firstAttribute="top" secondItem="eLv-Ay-QIA" secondAttribute="bottom" constant="24" id="P6J-em-EAy"/>
+                            <constraint firstItem="HDc-Dc-OJK" firstAttribute="leading" secondItem="2or-BV-3TH" secondAttribute="trailing" constant="8" symbolic="YES" id="W25-7m-IUM"/>
                             <constraint firstItem="eLv-Ay-QIA" firstAttribute="centerX" secondItem="fON-3J-GKV" secondAttribute="centerX" id="eT6-ca-1AG"/>
+                            <constraint firstItem="2or-BV-3TH" firstAttribute="centerY" secondItem="HDc-Dc-OJK" secondAttribute="centerY" id="hfo-Cn-Ka4"/>
+                            <constraint firstItem="Xic-eM-vtk" firstAttribute="leading" secondItem="7EZ-eZ-8WC" secondAttribute="trailing" constant="8" symbolic="YES" id="jYD-RK-INr"/>
                             <constraint firstItem="eLv-Ay-QIA" firstAttribute="top" secondItem="1NB-f0-epS" secondAttribute="bottom" constant="20" id="mLe-IY-M8b"/>
-                            <constraint firstItem="7EZ-eZ-8WC" firstAttribute="top" secondItem="eLv-Ay-QIA" secondAttribute="bottom" constant="25" id="rPG-4l-50w"/>
+                            <constraint firstItem="7EZ-eZ-8WC" firstAttribute="leading" secondItem="eLv-Ay-QIA" secondAttribute="leading" id="rxY-jw-S8a"/>
                         </constraints>
                     </view>
                     <connections>
