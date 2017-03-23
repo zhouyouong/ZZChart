@@ -38,7 +38,7 @@
     switch (index) {
         case 0:{
             [_barChart removeFromSuperview];
-            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.frame];
             _barChart.showDetailLabelOnBar = self.switchMiddle.on;
             _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
@@ -52,7 +52,7 @@
             break;
         case 1:{
             [_barChart removeFromSuperview];
-            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.frame];
             _barChart.showDetailLabelOnBar = self.switchMiddle.on;
             _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
@@ -66,7 +66,7 @@
             break;
         case 2:{
             [_barChart removeFromSuperview];
-            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.frame];
             _barChart.showDetailLabelOnBar = self.switchMiddle.on;
             _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
@@ -81,7 +81,7 @@
         case 3:{
             
             [_barChart removeFromSuperview];
-            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.frame];
             _barChart.showDetailLabelOnBar = self.switchMiddle.on;
             _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
@@ -96,7 +96,7 @@
             break;
         case 4:{
             [_barChart removeFromSuperview];
-            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.frame];
             _barChart.showDetailLabelOnBar = self.switchMiddle.on;
             _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];
@@ -109,7 +109,7 @@
             break;
         case 5:{
             [_barChart removeFromSuperview];
-            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.bounds];
+            _barChart = [[ZZBarchart alloc]initWithFrame:self.conteinView.frame];
             _barChart.showDetailLabelOnBar = self.switchMiddle.on;
             _barChart.showDetailLabelOnBartop = self.switchTop.on;
             [self.conteinView addSubview:_barChart];

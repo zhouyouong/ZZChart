@@ -356,7 +356,12 @@
             for (int j = 0; j < subArr.count; ++j) {
                 
                 barH = [subArr[j] floatValue];
-                barH = barH/_yValueMax*_conteinerHeight;
+                
+                if (_yValueMax != 0) {
+                    barH = barH/_yValueMax*_conteinerHeight;
+                }else{
+                    barH = 0;
+                }
                 barY -= barH;
                 
                 ZZBar * subbar = [[ZZBar alloc]initWithFrame:CGRectMake(barX, barY, barW, barH)];
@@ -410,7 +415,12 @@
                 CGFloat barY = totalH -_chartMargins.bottom-_xHeightLabel;
                 
                 CGFloat barH = [_yValues[i] floatValue];
-                barH = barH/_yValueMax*_conteinerHeight;
+                if (_yValueMax != 0) {
+                    barH = barH/_yValueMax*_conteinerHeight;
+                }else{
+                    barH = 0;
+                }
+                
                 
                 bar = [[ZZBar alloc]initWithFrame:CGRectMake(barX, barY, barW, -barH)];
                 
