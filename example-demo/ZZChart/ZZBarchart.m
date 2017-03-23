@@ -197,10 +197,10 @@
     if (_showLeftLine) {
         _leftLine = [[CAShapeLayer alloc]init];
         _leftLine.fillColor = [UIColor clearColor].CGColor;
-        if (_leftLineColor) {
-            _leftLine.strokeColor = _leftLineColor.CGColor;
+        if (_lineColor) {
+            _leftLine.strokeColor = _lineColor.CGColor;
         }else{
-            _leftLine.strokeColor = [UIColor redColor].CGColor;
+            _leftLine.strokeColor = [UIColor blackColor].CGColor;
         }
         _leftLine.lineCap = kCALineCapButt;
         _leftLine.lineWidth = 1.0;
@@ -221,10 +221,10 @@
     if (_showBottomLine) {
         _bottonLine = [[CAShapeLayer alloc]init];
         _bottonLine.fillColor = [UIColor clearColor].CGColor;
-        if (_bottomLineColor) {
-            _bottonLine.strokeColor = _bottomLineColor.CGColor;
+        if (_lineColor) {
+            _bottonLine.strokeColor = _lineColor.CGColor;
         }else{
-            _bottonLine.strokeColor = [UIColor redColor].CGColor;
+            _bottonLine.strokeColor = [UIColor blackColor].CGColor;
         }
         _bottonLine.lineCap = kCALineCapButt;
         _bottonLine.lineWidth = 1.0;
@@ -245,10 +245,10 @@
     if (_showRightLine) {
         _rightLine = [[CAShapeLayer alloc]init];
         _rightLine.fillColor = [UIColor clearColor].CGColor;
-        if (_rightLineColor) {
-            _rightLine.strokeColor = _rightLineColor.CGColor;
+        if (_lineColor) {
+            _rightLine.strokeColor = _lineColor.CGColor;
         }else{
-            _rightLine.strokeColor = [UIColor redColor].CGColor;
+            _rightLine.strokeColor = [UIColor blackColor].CGColor;
         }
         _rightLine.lineCap = kCALineCapButt;
         _rightLine.lineWidth = 1.0;

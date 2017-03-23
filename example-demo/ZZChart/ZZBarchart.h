@@ -44,9 +44,8 @@
 @property (nonatomic, strong) UIColor *ylableColor;
 @property (nonatomic, strong) UIColor *chartBackgroundColor;
 
-@property (nonatomic, strong) UIColor *leftLineColor;
-@property (nonatomic, strong) UIColor *bottomLineColor;
-@property (nonatomic, strong) UIColor *rightLineColor;
+
+@property (nonatomic, strong) UIColor *lineColor;
 
 @property (nonatomic, strong) UIColor *detailLabelBackgroundColor;
 @property (nonatomic, strong) UIColor *detailLabelTextColor;
