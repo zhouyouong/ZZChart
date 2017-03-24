@@ -30,7 +30,6 @@
 @property (nonatomic, assign) CGFloat barMargin;
 @property (nonatomic, assign) CGFloat barWidth;
 @property (nonatomic, strong) NSArray *barWidths;
-/*⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈⇈*/
 
 @property (nonatomic, assign) CGFloat yMaxValue;
 @property (nonatomic, assign) CGFloat yMinValue;
@@ -45,15 +44,20 @@
 @property (nonatomic, strong) UIColor *ylableColor;
 @property (nonatomic, strong) UIColor *chartBackgroundColor;
 
-@property (nonatomic, strong) UIColor *leftLineColor;
-@property (nonatomic, strong) UIColor *bottomLineColor;
-@property (nonatomic, strong) UIColor *rightLineColor;
+
+@property (nonatomic, strong) UIColor *lineColor;
+
+@property (nonatomic, strong) UIColor *detailLabelBackgroundColor;
+@property (nonatomic, strong) UIColor *detailLabelTextColor;
 
 @property (nonatomic, assign) BOOL showLeftLine;
 @property (nonatomic, assign) BOOL showBottomLine;
 @property (nonatomic, assign) BOOL showRightLine;
 @property (nonatomic, assign) BOOL showXlabels;
 @property (nonatomic, assign) BOOL showYlabels;
+@property (nonatomic, assign) BOOL showDetailLabelOnBartop;
+@property (nonatomic, assign) BOOL showDetailLabelOnBar;
+
 
 /**
  待拓展,显示网格

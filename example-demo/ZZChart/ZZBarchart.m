@@ -79,9 +79,8 @@
     _yLableNumber = 0;
     _yValueMin = 0;
     _xHeightLabel = 18;
-//    _xWidthLable = 30;
     _yHeightLabel = 0;
-    _yWidthLabel = 18;
+    _yWidthLabel = 33;
     _marginBar  = 5;
 }
 
@@ -287,6 +286,10 @@
             [_rightLine addAnimation:animation forKey:@"animation"];
             _rightLine.strokeEnd = 1.0;
         }
+    }else{
+        _leftLine.strokeEnd = 1.0;
+        _bottonLine.strokeEnd = 1.0;
+        _rightLine.strokeEnd = 1.0;
     }
 }
 

@@ -30,8 +30,8 @@
     CGFloat _conteinerHeight;
     CGFloat _conteinerWidth;
     NSMutableArray * _barsConteiner;
+    NSMutableArray * _labelsConteiner;
     BOOL _didSetBarmagin;
-
 }
 
 @end
@@ -67,18 +67,20 @@
     _showYlabels = YES;
     _showXlabels = YES;
     _isMutiBar = NO;
+    _showDetailLabelOnBartop = YES;
+    _showDetailLabelOnBar = NO;
     _chartMargins = UIEdgeInsetsMake(25, 10, 20, 18);
     _xBarLabels = [NSMutableArray array];
     _yBarLabels = [NSMutableArray array];
     _temproryArr = [NSMutableArray array];
     _barsConteiner = [NSMutableArray array];
+    _labelsConteiner = [NSMutableArray array];
     _ySegmentCount = 1;
     _yLableNumber = 0;
     _yValueMin = 0;
     _xHeightLabel = 18;
-//    _xWidthLable = 30;
     _yHeightLabel = 0;
-    _yWidthLabel = 18;
+    _yWidthLabel = 33;
     _marginBar  = 5;
 }
 
@@ -194,10 +196,10 @@
     if (_showLeftLine) {
         _leftLine = [[CAShapeLayer alloc]init];
         _leftLine.fillColor = [UIColor clearColor].CGColor;
-        if (_leftLineColor) {
-            _leftLine.strokeColor = _leftLineColor.CGColor;
+        if (_lineColor) {
+            _leftLine.strokeColor = _lineColor.CGColor;
         }else{
-            _leftLine.strokeColor = [UIColor redColor].CGColor;
+            _leftLine.strokeColor = [UIColor blackColor].CGColor;
         }
         _leftLine.lineCap = kCALineCapButt;
         _leftLine.lineWidth = 1.0;
@@ -206,8 +208,8 @@
         UIBezierPath * path = [UIBezierPath bezierPath];
         path.lineWidth = 1.0;
         path.lineCapStyle = kCGLineCapSquare;
-        [path moveToPoint:CGPointMake(_chartMargins.left+_yWidthLabel, _chartMargins.top)];
-        [path addLineToPoint:CGPointMake(_chartMargins.left+_yWidthLabel, self.frame.size.height - _xHeightLabel -_chartMargins.bottom)];
+        [path moveToPoint:CGPointMake(_chartMargins.left+_yWidthLabel, self.frame.size.height - _xHeightLabel -_chartMargins.bottom)];
+        [path addLineToPoint:CGPointMake(_chartMargins.left+_yWidthLabel, _chartMargins.top)];
         
         _leftLine.path = path.CGPath;
         
@@ -218,10 +220,10 @@
     if (_showBottomLine) {
         _bottonLine = [[CAShapeLayer alloc]init];
         _bottonLine.fillColor = [UIColor clearColor].CGColor;
-        if (_bottomLineColor) {
-            _bottonLine.strokeColor = _bottomLineColor.CGColor;
+        if (_lineColor) {
+            _bottonLine.strokeColor = _lineColor.CGColor;
         }else{
-            _bottonLine.strokeColor = [UIColor redColor].CGColor;
+            _bottonLine.strokeColor = [UIColor blackColor].CGColor;
         }
         _bottonLine.lineCap = kCALineCapButt;
         _bottonLine.lineWidth = 1.0;
@@ -242,10 +244,10 @@
     if (_showRightLine) {
         _rightLine = [[CAShapeLayer alloc]init];
         _rightLine.fillColor = [UIColor clearColor].CGColor;
-        if (_rightLineColor) {
-            _rightLine.strokeColor = _rightLineColor.CGColor;
+        if (_lineColor) {
+            _rightLine.strokeColor = _lineColor.CGColor;
         }else{
-            _rightLine.strokeColor = [UIColor redColor].CGColor;
+            _rightLine.strokeColor = [UIColor blackColor].CGColor;
         }
         _rightLine.lineCap = kCALineCapButt;
         _rightLine.lineWidth = 1.0;
@@ -284,8 +286,13 @@
             [_rightLine addAnimation:animation forKey:@"animation"];
             _rightLine.strokeEnd = 1.0;
         }
+    }else{
+        _leftLine.strokeEnd = 1.0;
+        _bottonLine.strokeEnd = 1.0;
+        _rightLine.strokeEnd = 1.0;
     }
 }
+
 
 -(void)drawBars{
     
@@ -352,17 +359,28 @@
             for (int j = 0; j < subArr.count; ++j) {
                 
                 barH = [subArr[j] floatValue];
-                barH = barH/_yValueMax*_conteinerHeight;
+                
+                if (_yValueMax != 0) {
+                    barH = barH/_yValueMax*_conteinerHeight;
+                }else{
+                    barH = 0;
+                }
                 barY -= barH;
                 
                 ZZBar * subbar = [[ZZBar alloc]initWithFrame:CGRectMake(barX, barY, barW, barH)];
-                
+            
                 if (_yStrokeColors[j]) {
-                    subbar.backgroundColor = _yStrokeColors[j];
+                    [UIView animateWithDuration:1.5 animations:^{
+                        subbar.backgroundColor = _yStrokeColors[j];
+                    }];
+                    
                 }else{
-                    subbar.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3*j];
+                    
+                    [UIView animateWithDuration:1.5 animations:^{
+                        subbar.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3*j];
+                    }];
                 }
-                subbar.tag = i;
+                subbar.tag = i*_yValues.count*10000 +j;
                 subbar.displayAnimation = self.playAniamtion;
                 [self addSubview:subbar];
                 [_barsConteiner addObject:subbar];
@@ -400,15 +418,24 @@
                 CGFloat barY = totalH -_chartMargins.bottom-_xHeightLabel;
                 
                 CGFloat barH = [_yValues[i] floatValue];
-                barH = barH/_yValueMax*_conteinerHeight;
+                if (_yValueMax != 0) {
+                    barH = barH/_yValueMax*_conteinerHeight;
+                }else{
+                    barH = 0;
+                }
+                
                 
                 bar = [[ZZBar alloc]initWithFrame:CGRectMake(barX, barY, barW, -barH)];
                 
                 [self creareXlabelsWith:CGRectMake(barX, barY, barW, _xHeightLabel) andIndex:i];
                 if (_yStrokeColor) {
-                    bar.backgroundColor = _yStrokeColor;
+                    [UIView animateWithDuration:1.5 animations:^{
+                       bar.backgroundColor = _yStrokeColor;
+                    }];
                 }else{
-                    bar.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+                    [UIView animateWithDuration:1.5 animations:^{
+                        bar.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+                    }];
                 }
                 bar.tag = i;
                 bar.displayAnimation = self.playAniamtion;
@@ -418,7 +445,29 @@
         }
     
     }
+    
+    [self addAnimationToBars];
+    
+}
 
+
+
+
+-(void)addAnimationToBars{
+    
+    for (ZZBar * bar in _barsConteiner) {
+        CGRect rect = bar.frame;
+        CGFloat rectX = rect.origin.x;
+        CGFloat rectY = rect.origin.y;
+        CGFloat rectW = rect.size.width;
+//        CGFloat rectH = rect.size.height;
+        CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"bounds"];
+        animation.duration = 0.5;
+        animation.repeatCount =1;
+        animation.fromValue = [NSValue valueWithCGRect:CGRectMake(rectX, rectY, rectW, 0)];
+        animation.toValue = [NSValue valueWithCGRect:rect];
+        [bar.layer addAnimation:animation forKey:nil];
+    }
 }
 
 -(void)creareXlabelsWith:(CGRect)rect andIndex:(NSInteger)index{    
@@ -459,6 +508,11 @@
     [self touches:touches Envents:event];
 }
 
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesEnded:touches withEvent:event];
+    [self viewsRemoveForCollectionView:_labelsConteiner];
+}
+
 -(void)touches:(NSSet *)touches Envents:(UIEvent *)event{
     UITouch * touch = touches.anyObject;
     CGPoint point = [touch locationInView:self];
@@ -471,9 +525,43 @@
     
     if ([self.delegate respondsToSelector:@selector(userTouchIndex:)]&& [subView isKindOfClass:[ZZBar class]]) {
         [self.delegate userTouchIndex:subView.tag];
+        [self drawDetailLabelOnBar:(ZZBar*)subView];
     }
-
 }
+
+-(void)drawDetailLabelOnBar:(ZZBar*)bar{
+    [self viewsRemoveForCollectionView:_labelsConteiner];
+    CGRect rect = bar.frame;
+    CGFloat labelX = rect.origin.x;
+    CGFloat labelY = rect.origin.y+rect.size.height/2.0;
+    CGFloat labelW = 100;
+    CGFloat labelH = 22;
+    NSString * title;
+    if (_isMutiBar) {
+        NSArray * sub = _yValues[bar.tag/(_yValues.count*10000)];
+        title = [NSString stringWithFormat:@"%@",sub[bar.tag%(_yValues.count*10000)]];
+    }else{
+        title = [NSString stringWithFormat:@"%@",_yValues[bar.tag]];
+    }
+    
+    UILabel * titleLabel = [[UILabel alloc]init];
+    if (_showDetailLabelOnBartop) {
+        titleLabel.frame =CGRectMake(labelX-50+rect.size.width/2.0, labelY-rect.size.height/2.0-22, labelW, labelH);
+    }else if (_showDetailLabelOnBar){
+        titleLabel.frame =CGRectMake(labelX-50+rect.size.width/2.0, labelY-11, labelW, labelH);
+    }
+    titleLabel.text = title;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    if (self.detailLabelTextColor) {
+        titleLabel.textColor = self.detailLabelTextColor;
+    }
+    if (self.detailLabelBackgroundColor) {
+        titleLabel.backgroundColor = self.detailLabelBackgroundColor;
+    }
+    [self addSubview:titleLabel];
+    [_labelsConteiner addObject:titleLabel];
+}
+
 
 -(void)setBarMargin:(CGFloat)barMargin{
     _barMargin = barMargin;
