@@ -446,7 +446,9 @@
     
     }
     
-    [self addAnimationToBars];
+    if (self.playAniamtion) {
+        [self addAnimationToBars];
+    }
     
 }
 
