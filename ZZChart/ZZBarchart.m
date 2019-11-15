@@ -429,8 +429,14 @@
                 
                 [self creareXlabelsWith:CGRectMake(barX, barY, barW, _xHeightLabel) andIndex:i];
                 if (_yStrokeColor) {
+                    __weak typeof(self) weakself = self;
                     [UIView animateWithDuration:1.5 animations:^{
-                       bar.backgroundColor = _yStrokeColor;
+                       bar.backgroundColor = weakself.yStrokeColor;
+                    }];
+                }else if (_yStrokeColors){
+                    UIColor * color = _yStrokeColors[i];
+                    [UIView animateWithDuration:1.5 animations:^{
+                       bar.backgroundColor = color;
                     }];
                 }else{
                     [UIView animateWithDuration:1.5 animations:^{
@@ -446,7 +452,9 @@
     
     }
     
-    [self addAnimationToBars];
+    if (self.playAniamtion) {
+        [self addAnimationToBars];
+    }
     
 }
 
